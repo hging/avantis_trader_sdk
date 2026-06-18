@@ -61,7 +61,7 @@ class FeedClient:
             Exception: If an error occurs while listening for price updates.
         """
         try:
-            async with websockets.connect(self.ws_url) as websocket:
+            async with websockets.connect(self.ws_url, proxy=None) as websocket:
                 self._socket = websocket
                 self._connected = True
                 await websocket.send(
